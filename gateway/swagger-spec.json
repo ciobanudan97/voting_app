@@ -1,1 +1,338 @@
-{"openapi":"3.0.0","paths":{"/":{"get":{"operationId":"AppController_getHello","parameters":[],"responses":{"200":{"description":""}},"tags":["App"]}},"/users":{"post":{"operationId":"UsersController_create","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateUserDto"}}}},"responses":{"201":{"description":""}},"tags":["Users"]},"get":{"operationId":"UsersController_findAll","parameters":[],"responses":{"200":{"description":""}},"tags":["Users"]}},"/users/{id}":{"get":{"operationId":"UsersController_findOne","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":""}},"tags":["Users"]},"patch":{"operationId":"UsersController_update","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateUserDto"}}}},"responses":{"200":{"description":""}},"tags":["Users"]},"delete":{"operationId":"UsersController_remove","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":""}},"tags":["Users"]}},"/voting-options":{"post":{"operationId":"VotingOptionsController_create","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateVotingOptionDto"}}}},"responses":{"201":{"description":""}},"tags":["VotingOptions"]},"get":{"operationId":"VotingOptionsController_findAll","parameters":[],"responses":{"200":{"description":""}},"tags":["VotingOptions"]}},"/voting-options/{category}":{"get":{"operationId":"VotingOptionsController_findByCategory","parameters":[{"name":"category","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":""}},"tags":["VotingOptions"]}},"/voting-options/{id}":{"delete":{"operationId":"VotingOptionsController_remove","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":""}},"tags":["VotingOptions"]}},"/vote":{"post":{"operationId":"VotingCasterController_vote","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/VoteDto"}}}},"responses":{"201":{"description":""}},"tags":["VotingCaster"]}},"/login":{"post":{"operationId":"AuthController_login","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/LoginDto"}}}},"responses":{"201":{"description":""}},"tags":["Auth"]}},"/voting-results/count/{category}":{"get":{"operationId":"VotingResultsController_countByCategory","parameters":[{"name":"category","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":""}},"tags":["VotingResults"]}},"/voting-results/{category}":{"get":{"operationId":"VotingResultsController_findByCategory","parameters":[{"name":"category","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":""}},"tags":["VotingResults"]}}},"info":{"title":"Voting app Api","description":"Voting app Api","version":"1.0","contact":{}},"tags":[],"servers":[],"components":{"schemas":{"CreateUserDto":{"type":"object","properties":{}},"UpdateUserDto":{"type":"object","properties":{}},"CreateVotingOptionDto":{"type":"object","properties":{}},"VoteDto":{"type":"object","properties":{}},"LoginDto":{"type":"object","properties":{}}}}}
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "AppController_getHello",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "App"
+                ]
+            }
+        },
+        "/users": {
+            "post": {
+                "operationId": "UsersController_create",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateUserDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Users"
+                ]
+            },
+            "get": {
+                "operationId": "UsersController_findAll",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Users"
+                ]
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "operationId": "UsersController_findOne",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Users"
+                ]
+            },
+            "patch": {
+                "operationId": "UsersController_update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateUserDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Users"
+                ]
+            },
+            "delete": {
+                "operationId": "UsersController_remove",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Users"
+                ]
+            }
+        },
+        "/voting-options": {
+            "post": {
+                "operationId": "VotingOptionsController_create",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateVotingOptionDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "VotingOptions"
+                ]
+            },
+            "get": {
+                "operationId": "VotingOptionsController_findAll",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "VotingOptions"
+                ]
+            }
+        },
+        "/voting-options/{category}": {
+            "get": {
+                "operationId": "VotingOptionsController_findByCategory",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "VotingOptions"
+                ]
+            }
+        },
+        "/voting-options/{id}": {
+            "delete": {
+                "operationId": "VotingOptionsController_remove",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "VotingOptions"
+                ]
+            }
+        },
+        "/vote": {
+            "post": {
+                "operationId": "VotingCasterController_vote",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/VoteDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "VotingCaster"
+                ]
+            }
+        },
+        "/login": {
+            "post": {
+                "operationId": "AuthController_login",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Auth"
+                ]
+            }
+        },
+        "/voting-results/count/{category}": {
+            "get": {
+                "operationId": "VotingResultsController_countByCategory",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "VotingResults"
+                ]
+            }
+        },
+        "/voting-results/{category}": {
+            "get": {
+                "operationId": "VotingResultsController_findByCategory",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "VotingResults"
+                ]
+            }
+        }
+    },
+    "info": {
+        "title": "Voting app Api",
+        "description": "Voting app Api",
+        "version": "1.0",
+        "contact": {}
+    },
+    "tags": [],
+    "servers": [],
+    "components": {
+        "schemas": {
+            "CreateUserDto": {
+                "type": "object",
+                "properties": {}
+            },
+            "UpdateUserDto": {
+                "type": "object",
+                "properties": {}
+            },
+            "CreateVotingOptionDto": {
+                "type": "object",
+                "properties": {}
+            },
+            "VoteDto": {
+                "type": "object",
+                "properties": {}
+            },
+            "LoginDto": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    }
+}
