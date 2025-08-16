@@ -20,35 +20,6 @@ Inspired by the Romanian presidential election, 2025.
 - Health checks, structured logs
 - Ready for k6 load testing & Jest unit tests
 
-Architecture (overview)
-           ┌──────────────────┐
-           │    Clients       │
-           │ (Web/CLI/Apps)   │
-           └───────┬──────────┘
-                   │  HTTP (REST)
-             ┌─────▼─────┐
-             │  Gateway  │  AuthN/Z, rate limit, routing
-             └─┬───────┬─┘
-       RPC/TCP │       │ HTTP/REST
-               │       │
-         ┌─────▼───┐  ┌▼────────────────┐
-         │  Auth   │  │ Voting Options  │  (CRUD options)
-         └────┬────┘  └─────────────────┘
-              │ issues JWT
-              │
-      ┌───────▼────────┐
-      │  Users Service  │  (profile/roles)
-      └─────────────────┘
-
-   Async (RabbitMQ)
-      ┌─────────────────────────────────────────────────────────┐
-      │        exchange: votes    queue: votes.events           │
-      └──────────────┬───────────────────────────┬─────────────┘
-                     │                           │
-             ┌───────▼────────┐           ┌──────▼───────────┐
-             │ Voting Executor │           │ Voting Results   │ (counters, read models)
-             └─────────────────┘           └──────────────────┘
-
 Storage:
 - MySQL (users/auth)     - MongoDB (votes, aggregates)
 
