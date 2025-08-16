@@ -8,7 +8,13 @@ import { AuthModule } from './auth/auth.module';
 import { VotingResultsModule } from './voting-results/voting-results.module';
 
 @Module({
-  imports: [UsersModule, VotingOptionsModule, VotingCasterModule, AuthModule, VotingResultsModule],
+  imports: [
+    UsersModule,
+    VotingOptionsModule,
+    VotingCasterModule,
+    AuthModule,
+    VotingResultsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

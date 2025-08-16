@@ -12,8 +12,8 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         name: 'VOTING_OPTIONS_SERVICE',
         transport: Transport.TCP,
         options: {
-          host: 'voting-options',
-          port: 4003
+          host: process.env.VOTING_OPTIONS_SERVICE_HOST || 'voting-options',
+          port: parseInt(process.env.VOTING_OPTIONS_PORT || "4003") // Ensure the port is set from environment variable or default to 4003
         }
       },
     ]),

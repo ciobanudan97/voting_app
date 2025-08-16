@@ -12,8 +12,8 @@ import { ClientsModule, Transport } from '@nestjs/microservices'
         name: 'USER_SERVICE',
         transport: Transport.TCP,
         options: {
-          host: 'users',
-          port: 4001
+          host: process.env.USERS_SERVICE_HOST || 'users',
+          port: parseInt(process.env.USERS_PORT || "4001") // Ensure the port is set from environment variable or default to 4001
         }
       },
     ]),
