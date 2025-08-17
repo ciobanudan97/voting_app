@@ -40,10 +40,14 @@ services:
     restart: always
     ports:
       - '3000:3000'
+    env_file:
+      - .env
   auth:
     build:
       context: ./auth
     restart: always
+    env_file:
+      - .env
 
   users:
     build:
@@ -51,6 +55,8 @@ services:
     restart: always
     depends_on:
       - mysql
+    env_file:
+      - .env
 
   voting-executor:
     build:
@@ -59,6 +65,8 @@ services:
     depends_on:
       - rabbitmq
       - mongodb
+    env_file:
+      - .env
 
   voting-options:
     build:
@@ -66,12 +74,17 @@ services:
     restart: always
     depends_on:
       - mysql
+    env_file:
+      - .env
+
   voting-results:
     build:
       context: ./voting-results
     restart: always
     depends_on:
       - mongodb
+    env_file:
+      - .env
 
 volumes:
   mysql_data:

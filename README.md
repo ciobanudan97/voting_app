@@ -32,8 +32,7 @@ Storage:
 - Docker Compose for local orchestration
 - Jest (unit/integration), k6 (load testing)
 
-Start everything
-- docker compose up --build -d
+
 
 📦 Services (folders)
 
@@ -55,3 +54,6 @@ Infra:
 - Login → returns JWT
 - Protected endpoints require Authorization: Bearer <token>
 - Role guard (admin / user) applied at controller level
+
+Start everything
+- docker compose up --build -d
