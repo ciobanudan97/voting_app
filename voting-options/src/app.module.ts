@@ -11,10 +11,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST || 'mysql',
-      port: 3306,
-      username: 'user',
-      password: 'userpass',
-      database: 'usersdb',
+      port: parseInt(process.env.DB_PORT || "3306"),
+      username: process.env.DB_USERNAME || 'user',
+      password: process.env.DB_PASSWORD || 'userpass',
+      database: process.env.MYSQL_DATABASE || 'usersdb',
       entities: [VotingOption],
       synchronize: true,
     })

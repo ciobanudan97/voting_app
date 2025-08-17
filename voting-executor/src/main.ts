@@ -6,11 +6,11 @@ async function bootstrap() {
   const app = await NestFactory.createMicroservice(AppModule, {
     transport: Transport.RMQ,
     options: {
-      urls: ['amqp://rabbitmq:5672'],
-      queue: 'vote_queue',
+      urls: [process.env.RMQ_URL || 'amqp://rabbitmq:5672'],
+      queue: process.env.RMQ_QUEUE || 'vote_queue',
       queueOptions: { durable: true },
       routingKey: '#', // ✅ wildcard match for all events
-      exchange: 'events_exchange',
+      exchange: process.env.RMQ_EXCHANGE || 'events_exchange',
       exchangeType: 'topic',
     },
   });

@@ -14,7 +14,10 @@ import { LocalStrategy } from './local.strategy';
       {
         name: 'USER_SERVICE',
         transport: Transport.TCP,
-        options: { host: 'users', port: 4001 },
+        options: {
+          host: process.env.USERS_SERVICE_HOST || "users",
+          port: parseInt(process.env.USERS_PORT || "4001")
+        },
       },
     ]),
     PassportModule,

@@ -6,7 +6,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [VotingExecutorModule,
-    MongooseModule.forRoot('mongodb://mongodb:27017/voting_db'), // 🔧 replace with your DB name
+    MongooseModule.forRoot(`mongodb://${process.env.MONGODB_HOST || "mongodb"}:
+      ${parseInt(process.env.MONGODB_PORT || "27017")}/
+      ${process.env.MONGODB_DATABASE || "voting_db"}`), // 🔧 replace with your DB name
   ],
   controllers: [AppController],
   providers: [AppService],

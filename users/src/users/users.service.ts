@@ -49,6 +49,8 @@ export class UsersService implements OnModuleInit {
   async ensureAdminExists() {
     const adminEmail = process.env.ADMIN_EMAIL || 'admin';
     const adminPassword = process.env.ADMIN_PASSWORD || '12356dfhrzal';
+    const adminRole = process.env.ADMIN_ROLE || 'admin';
+    const adminCNP = process.env.ADMIN_NAME || '000000';
 
     const existingAdmin = await this.userRepository.findOneBy({ email: adminEmail });
     if (existingAdmin) return;
@@ -57,9 +59,9 @@ export class UsersService implements OnModuleInit {
     const adminUser = this.userRepository.create({
       email: adminEmail,
       passwd: hashedPassword,
-      role: 'admin',
-      name: 'admin',
-      cnp: '124'
+      role: adminRole,
+      name: adminRole,
+      cnp: adminCNP
     });
 
     await this.userRepository.save(adminUser);

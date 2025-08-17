@@ -13,10 +13,10 @@ import { User } from './users/entities/user.entity';
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST || 'mysql',
-      port: 3306,
-      username: 'user',
-      password: 'userpass',
-      database: 'usersdb',
+      port: parseInt(process.env.DB_PORT || "3306"),
+      username: process.env.DB_USERNAME || 'user',
+      password: process.env.DB_PASSWORD || 'userpass',
+      database: process.env.DB_NAME || 'usersdb',
       entities: [User],
       synchronize: true,
     })
